@@ -26,6 +26,7 @@ export class LoginComponent {
 
 
 //  constructor(private authService:AuthenticationService, private router:Router){}
+ constructor(private router:Router){}
 
  login(){
    if(this.loginForm.valid){
@@ -48,7 +49,7 @@ export class LoginComponent {
 
 
 close(){
-  // this.router.navigate(['home']);
+  this.router.navigate(['/']);
 }
 
 
