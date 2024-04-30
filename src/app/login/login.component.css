@@ -12,7 +12,9 @@
 
 }
 
-
+.title{
+  text-align: center;
+}
 
  .close {
   position: relative;
@@ -84,7 +86,7 @@ input{
 button{
   padding: .75rem;
   border: none;
-  background-color: #000000;
+  background-color: blue;
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
@@ -94,7 +96,7 @@ button{
 
 
 button:hover{
-  background-color:#000000;
+  background-color: rgba(0, 38, 255, 0.904);
 
 }
 
