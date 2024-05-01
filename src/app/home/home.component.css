@@ -20,12 +20,31 @@
 
 
 .info{
+  margin-top: 2%;
   display: flex;
   justify-content: space-around;
+
 }
+
+
 
 
 .example-card {
   max-width: 400px;
   margin-bottom: 8px;
 }
+
+
+.example-card:hover{
+  transform: scale(1.1);
+}
+
+
+/* @media (max-width: 767px) {
+
+  .img-text {
+
+
+  }
+
+} */
