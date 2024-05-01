@@ -1,0 +1,25 @@
+.foot{
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  /* padding: 5%; */
+  /* left: 0;
+  bottom: 0; */
+}
+
+.tool{
+  margin-top: 3%;
+}
+
+.list-main{
+  display: flex;
+  justify-content: center;
+  gap: 3;
+
+}
+
+
+h2{
+  text-align: center;
+  margin-bottom: 5%;
+}
