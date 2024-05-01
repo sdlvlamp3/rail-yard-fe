@@ -86,7 +86,7 @@ input{
 button{
   padding: .75rem;
   border: none;
-  background-color: #3498db;
+  background-color: rgb(3, 170, 3);
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
@@ -96,7 +96,7 @@ button{
 
 
 button:hover{
-  background-color: #3cb0fd;
+  background-color:  rgb(4, 189, 4);
 
 }
 
