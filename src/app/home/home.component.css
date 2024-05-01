@@ -35,6 +35,10 @@
   background-color: rgba(128, 128, 128, 0.13);
 }
 
+/* .main-con{
+  min-height: 100vh;
+} */
+
 
 .example-card:hover{
   transform: scale(1.1);
