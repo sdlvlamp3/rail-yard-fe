@@ -3,12 +3,12 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-landing',
   standalone: true,
   imports: [MatCardModule, MatIconModule],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  templateUrl: './landing.component.html',
+  styleUrl: './landing.component.css'
 })
-export class HomeComponent {
+export class LandingComponent {
 
 }
