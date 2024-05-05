@@ -5,7 +5,7 @@ export class RailCar {
        materialType: string,
        arrivalDate: Date,
        departureDate: Date,
-       estimatedArrivalDate: Date,
+       estimatedArrivalDate: Date
 
     ) {}
   }

@@ -3,7 +3,7 @@ export class RawMaterial {
       name: string,
       quantity: number,
       consumptionRate: number,
-      inventory: number,
+      inventory: number
 
     ) {}
   }

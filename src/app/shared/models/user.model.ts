@@ -5,5 +5,5 @@ export class User {
       last_name: string,
       email: string,
       token: any,
-      role: string,) { }
+      role: string) { }
   }

@@ -1,10 +1,10 @@
 export class Extraction {
     constructor(
-      id: string, 
+      id: string,
       railCarId: string, 
       materialType: string, 
       quantity: number, 
-      extractionDate: Date, 
-
+      extractionDate: Date
+     
     ) {}
   }
