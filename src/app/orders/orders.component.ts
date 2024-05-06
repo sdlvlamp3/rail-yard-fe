@@ -9,20 +9,20 @@ import {MatTableModule} from '@angular/material/table';
   styleUrl: './orders.component.css'
 })
 export class OrdersComponent {
-  ELEMENT_DATA: any[] = [
-    {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-    {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-    {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-    {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-    {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-    {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-    {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-    {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-    {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-    {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+  Cart_DATA: any[] = [
+    {number: 1, requestedDate: 'Hydrogen', receivedDate: 1.0079, extractionStartDate:32, emptiedDate:43, releasedDate:43, name: 'H'},
+    {number: 2, requestedDate: 'Helium', receivedDate: 4.0026, extractionStartDate:32, emptiedDate:43, releasedDate:43, name: 'He'},
+    {number: 3, requestedDate: 'Lithium', receivedDate: 6.941, extractionStartDate:32, emptiedDate:43, releasedDate:43, name: 'Li'},
+    {number: 4, requestedDate: 'Beryllium', receivedDate: 9.0122, extractionStartDate:32, emptiedDate:43, releasedDate:43, name: 'Be'},
+    {number: 5, requestedDate: 'Boron', receivedDate: 10.811, extractionStartDate:32, emptiedDate:43, releasedDate:43, name: 'B'},
+    {number: 6, requestedDate: 'Carbon', receivedDate: 12.0107, extractionStartDate:32, emptiedDate:43, releasedDate:43, name: 'C'},
+    {number: 7, requestedDate: 'Nitrogen', receivedDate: 14.0067, extractionStartDate:32, emptiedDate:43, releasedDate:43, name: 'N'},
+    {number: 8, requestedDate: 'Oxygen', receivedDate: 15.9994, extractionStartDate:32, emptiedDate:43, releasedDate:43, name: 'O'},
+    {number: 9, requestedDate: 'Fluorine', receivedDate: 18.9984, extractionStartDate:32, emptiedDate:43, releasedDate:43, name: 'F'},
+    {number: 10, requestedDate: 'Neon', receivedDate: 20.1797, extractionStartDate:32, emptiedDate:43, releasedDate:43, name: 'Ne'},
   ];
 
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = this. ELEMENT_DATA;
+  displayedColumns: string[] = ['number', 'requestedDate', 'receivedDate', 'extractionStartDate', 'emptiedDate', 'releasedDate', 'name'];
+  dataSource = this.Cart_DATA;
 }
