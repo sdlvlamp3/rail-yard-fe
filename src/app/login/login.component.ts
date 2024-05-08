@@ -19,7 +19,7 @@ export class LoginComponent {
   isLoading=false
 
   loginForm: FormGroup=new FormGroup({
-    username: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
     });
 
@@ -29,11 +29,11 @@ export class LoginComponent {
 
  login(){
    if(this.loginForm.valid){
-     const username = this.loginForm.value.username;
+     const email = this.loginForm.value.email;
      const password = this.loginForm.value.password;
      this.isLoading = true
 
-      this.authService.login(username, password).subscribe({
+      this.authService.login(email, password).subscribe({
 
           next: (res: any) => {
             console.log('logged in with token', res.token);
