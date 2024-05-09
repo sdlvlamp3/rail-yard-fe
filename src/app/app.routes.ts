@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { LandingComponent } from './core/components/landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { HomePageComponent } from './core/components/home-page/home-page.component';
+import { OrdersComponent } from './orders/orders.component';
 
 
 export const routes: Routes = [
@@ -24,5 +25,3 @@ export const routes: Routes = [
   loadComponent: () => import('./core/components/home-page/home-page.component')
     .then((m) => m.HomePageComponent)
   },
-
-];
