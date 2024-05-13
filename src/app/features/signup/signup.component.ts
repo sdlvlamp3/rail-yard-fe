@@ -28,7 +28,7 @@ export class SignupComponent {
     let newUser: User = this.signupForm.value;
     newUser.user_type = 'user';
     this.authService.signup(newUser).subscribe({
-      next: (response) => {
+      next: () => {
         this.router.navigate(['/login']);
       },
       error: (error) => {
