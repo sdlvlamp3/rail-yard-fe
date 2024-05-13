@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+  margin: 0 auto;
+}
+
+.signup-form input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.signup-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  width: 100px;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+}
+.form-group label {
+  align-self: flex-start;
+}
+.form-group input {
+  align-self: flex-end;
+}

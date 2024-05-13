@@ -1,0 +1,42 @@
+<div class="container">
+  <form [formGroup]="signupForm" (ngSubmit)="signup()" class="signup-form">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        placeholder="John Smith"
+        formControlName="name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        aria-describedby="emailHelp"
+        placeholder="railman@railyard.com"
+        formControlName="email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Password"
+        formControlName="password">
+    </div>
+    <div class="form-group">
+      <label for="password_confirmation">Confirm Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password_confirmation"
+        placeholder="Confirm Password"
+        formControlName="password_confirmation">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
