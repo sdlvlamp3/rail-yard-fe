@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../core/services/auth.service';
+import { User } from '../../models/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -11,18 +13,27 @@ import { AuthService } from '../../core/services/auth.service';
 })
 export class SignupComponent {
 
-  signupForm = new FormGroup({
-    name: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-    password_confirmation: new FormControl('', Validators.required),
-  });
+  signupForm: FormGroup;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) {
+    this.signupForm = new FormGroup({
+      name: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+      password_confirmation: new FormControl('', Validators.required),
+    });
+   }
 
   signup() {
-    this.authService.signup(this.signupForm.value)
-    console.log(this.signupForm.value);
+    let newUser: User = this.signupForm.value;
+    newUser.user_type = 'user';
+    this.authService.signup(newUser).subscribe({
+      next: (response) => {
+        this.router.navigate(['/login']);
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    })
   }
-
 }
