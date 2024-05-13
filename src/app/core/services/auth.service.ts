@@ -18,6 +18,13 @@ export class AuthService {
     });
   }
 
+<<<<<<< HEAD
+  signup(user: User) {
+    return this.http.post('http://localhost:3000/users', {
+      user: user
+    });
+  }
+
   login(email: string, password: string) {
     return this.http.post<{token: string}>('http://localhost:3000/login', {
       email,
