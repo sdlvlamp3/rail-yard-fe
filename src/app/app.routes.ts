@@ -13,6 +13,11 @@ export const routes: Routes = [
     loadComponent: () => import('./core/components/landing/landing.component')
       .then((m) => m.LandingComponent)
   },
+  {
+    path: 'signup',
+    loadComponent: () => import('./features/signup/signup.component')
+      .then((m) => m.SignupComponent)
+  },
 
   {
     path: 'login',
