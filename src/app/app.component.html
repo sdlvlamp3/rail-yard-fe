@@ -1,1 +1,21 @@
-<h1>Hello World!</h1> 
+<app-navbar></app-navbar>
+
+  <mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+
+      <button mat-raised-button id="nav-btn">
+        Orders
+      </button>
+      <button mat-raised-button id="nav-btn">
+        Logistics
+      </button>
+
+    </mat-drawer>
+    <mat-drawer-content>
+
+      <router-outlet></router-outlet>
+
+    </mat-drawer-content>
+  </mat-drawer-container>
+
+<app-footer></app-footer>

@@ -1,0 +1,65 @@
+<div class="main">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="car_id">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let cart"> {{cart.number}} </td>
+    </ng-container>
+
+    <!-- requested Column -->
+    <ng-container matColumnDef="requestedDate">
+      <th mat-header-cell *matHeaderCellDef> Requested Date </th>
+      <td mat-cell *matCellDef="let cart"> {{cart.requested_date}} </td>
+    </ng-container>
+
+    <!-- Received Column -->
+    <ng-container matColumnDef="receivedDate">
+      <th mat-header-cell *matHeaderCellDef> Received Date </th>
+      <td mat-cell *matCellDef="let cart"> {{cart.received_date}} </td>
+    </ng-container>
+
+    <!-- Extraction Column -->
+    <ng-container matColumnDef="extractionStartDate">
+      <th mat-header-cell *matHeaderCellDef> Extraction Start Date </th>
+      <td mat-cell *matCellDef="let cart"> {{cart.extraction_start_date}} </td>
+    </ng-container>
+
+     <!-- Emptied Column -->
+     <ng-container matColumnDef="emptiedDate">
+      <th mat-header-cell *matHeaderCellDef> Emptied Date </th>
+      <td mat-cell *matCellDef="let cart"> {{cart.emptied_date}} </td>
+    </ng-container>
+
+  <!-- Emptied Column -->
+  <ng-container matColumnDef="releasedDate">
+    <th mat-header-cell *matHeaderCellDef> Released Date </th>
+    <td mat-cell *matCellDef="let cart"> {{cart.released_date}} </td>
+  </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> material </th>
+      <td mat-cell *matCellDef="let cart"> {{cart.name}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
