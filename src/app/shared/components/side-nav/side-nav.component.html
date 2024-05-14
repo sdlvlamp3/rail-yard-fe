@@ -1,1 +1,35 @@
-<button (click)="openDialog()">Open Modal</button>
+<div class="container">
+  <div class="d-flex flex-column" id="nav-container">
+
+      <div class="top-nav-container">
+
+        <button mat-raised-button id="nav-btn">
+          Orders
+        </button>
+
+        <button mat-raised-button id="nav-btn">
+          Logistics
+        </button>
+
+      </div>
+      <div class="admin-control">
+
+        <button mat-raised-button id="nav-btn"(click)="openDialog()">
+          New Order
+        </button>
+
+        <button mat-raised-button id="nav-btn">
+          Update Orders
+        </button>
+
+      </div>
+
+      <div class="user-logout">
+        <button mat-raised-button id="nav-btn"
+        (click)="logout()"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>

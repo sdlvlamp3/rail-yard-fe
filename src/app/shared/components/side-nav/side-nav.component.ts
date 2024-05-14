@@ -8,12 +8,14 @@ import {
   MatDialogActions,
   MatDialogClose,
 } from '@angular/material/dialog';
-import {MatButtonModule} from '@angular/material/button';
 import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AddEditModalComponent } from '../../../features/add-edit-modal/add-edit-modal.component';
 import { Order } from '../../../core/models/order';
+import { Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { AuthService } from '../../../core/services/auth.service';
 
 
 @Component({
@@ -32,7 +34,7 @@ export class SideNavComponent {
 
   editOrder: Order = null;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(private router: Router, private authService: AuthService, public dialog: MatDialog) {}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddEditModalComponent, {
@@ -42,6 +44,11 @@ export class SideNavComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+
+  logout() {
+    this.authService.logOut()
+    this.router.navigate['landing']
   }
 
 }
