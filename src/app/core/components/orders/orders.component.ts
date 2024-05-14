@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import { Order } from '../../models/order';
 import { OrdersService } from '../../services/orders.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule, DatePipe],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.css'
 })

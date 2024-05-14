@@ -13,31 +13,31 @@
     <!-- requested Column -->
     <ng-container matColumnDef="requestedDate">
       <th mat-header-cell *matHeaderCellDef> Requested Date </th>
-      <td mat-cell *matCellDef="let cart"> {{cart.requested_date}} </td>
+      <td mat-cell *matCellDef="let cart"> {{cart.requested_date | date}} </td>
     </ng-container>
 
     <!-- Received Column -->
     <ng-container matColumnDef="receivedDate">
       <th mat-header-cell *matHeaderCellDef> Received Date </th>
-      <td mat-cell *matCellDef="let cart"> {{cart.received_date}} </td>
+      <td mat-cell *matCellDef="let cart"> {{cart.received_date | date }} </td>
     </ng-container>
 
     <!-- Extraction Column -->
     <ng-container matColumnDef="extractionStart">
       <th mat-header-cell *matHeaderCellDef> Extraction Start Date </th>
-      <td mat-cell *matCellDef="let cart"> {{cart.extraction_start}} </td>
+      <td mat-cell *matCellDef="let cart"> {{cart.extraction_start | date}} </td>
     </ng-container>
 
      <!-- Emptied Column -->
      <ng-container matColumnDef="extractionEnd">
       <th mat-header-cell *matHeaderCellDef> Emptied Date </th>
-      <td mat-cell *matCellDef="let cart"> {{cart.extraction_end}} </td>
+      <td mat-cell *matCellDef="let cart"> {{cart.extraction_end | date}} </td>
     </ng-container>
 
   <!-- Emptied Column -->
   <ng-container matColumnDef="releaseDate">
     <th mat-header-cell *matHeaderCellDef> Release Date </th>
-    <td mat-cell *matCellDef="let cart"> {{cart.release_date}} </td>
+    <td mat-cell *matCellDef="let cart"> {{cart.release_date | date}} </td>
   </ng-container>
 
     <!-- Name Column -->
