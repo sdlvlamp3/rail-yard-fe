@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>{{ modeText }} an Order</h2>
+<form [formGroup]="orderForm" (ngSubmit)="submit()">
+  <mat-dialog-content>
+    <mat-form-field>
+      <label for="car_id">Car ID</label>
+      <input matInput type="text" name="car_id" id="car_id" formControlName="car_id">
+    </mat-form-field>
+    <mat-form-field>
+      <label for="requested_date">Requested Date</label>
+      <input matInput type="date" name="requested_date" id="requested_date" formControlName="requested_date">
+    </mat-form-field>
+    @if (this.data) {
+      <mat-form-field>
+        <label for="received_date">Received Date</label>
+        <input matInput type="date" name="received_date" id="received_date" formControlName="received_date">
+      </mat-form-field>
+      <mat-form-field>
+        <label for="extraction_start">Extraction Start Date</label>
+        <input matInput type="date" name="extraction_start" id="extraction_start" formControlName="extraction_start">
+      </mat-form-field>
+      <mat-form-field>
+        <label for="extraction_end">Extraction End Date</label>
+        <input matInput type="date" name="extraction_end" id="extraction_end" formControlName="extraction_end">
+      </mat-form-field>
+      <mat-form-field>
+        <label for="release_date">Release Date</label>
+        <input matInput type="date" name="release_date" id="release_date" formControlName="release_date">
+      </mat-form-field>
+    }
+      <label for="raw_material_id">Raw Material</label>
+      <select type="date" name="raw_material_id" id="raw_material_id" formControlName="raw_material_id">
+        @for (material of materials; track $index) {
+          <option value="{{ material.id }}">{{ material.material_name }}</option>
+        }
+      </select>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button cdkFocusInitial>Ok</button>
+  </mat-dialog-actions>
+</form>
