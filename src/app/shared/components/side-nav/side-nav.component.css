@@ -1,0 +1,23 @@
+#nav-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#nav-btn {
+  display: block;
+  width: 85%;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.top-nav-container {
+  margin-bottom: 5rem;
+}
+
+.user-logout {
+  display: block;
+
+  margin-bottom: 1rem;
+
+}
