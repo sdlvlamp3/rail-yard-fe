@@ -25,6 +25,7 @@ export class OrdersComponent implements OnInit{
 
         this.Order_DATA = orders;
         console.log('Orders Retrieved:', orders)
+        this.dataSource = this.Order_DATA;
       },
       error: (error) => {
         console.error(error);
@@ -33,6 +34,6 @@ export class OrdersComponent implements OnInit{
 }
 
 
-  displayedColumns: string[] = ['car_id', 'requestedDate', 'receivedDate', 'extractionStartDate', 'emptiedDate', 'releasedDate', 'name'];
+  displayedColumns: string[] = ['car_id', 'requestedDate', 'receivedDate', 'extractionStart', 'extractionEnd', 'releaseDate', 'name'];
   dataSource = this.Order_DATA;
 }
