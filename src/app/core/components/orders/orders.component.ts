@@ -12,7 +12,7 @@ import { DatePipe } from '@angular/common';
   styleUrl: './orders.component.css'
 })
 export class OrdersComponent implements OnInit{
-  Order_DATA: Order[] = [];
+  orderData: Order[] = [];
 
   constructor(private ordersService: OrdersService) {}
 
@@ -24,9 +24,9 @@ export class OrdersComponent implements OnInit{
     this.ordersService.getOrders().subscribe({
       next: (orders) => {
 
-        this.Order_DATA = orders;
+        this.orderData = orders;
         console.log('Orders Retrieved:', orders)
-        this.dataSource = this.Order_DATA;
+        this.dataSource = this.orderData;
       },
       error: (error) => {
         console.error(error);
@@ -36,5 +36,5 @@ export class OrdersComponent implements OnInit{
 
 
   displayedColumns: string[] = ['carId', 'requestedDate', 'receivedDate', 'extractionStart', 'extractionEnd', 'releaseDate', 'rawMaterialId', 'weight'];
-  dataSource = this.Order_DATA;
+  dataSource = this.orderData;
 }
