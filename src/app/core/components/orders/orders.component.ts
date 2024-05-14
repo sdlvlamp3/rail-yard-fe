@@ -34,6 +34,6 @@ export class OrdersComponent implements OnInit{
 }
 
 
-  displayedColumns: string[] = ['car_id', 'requestedDate', 'receivedDate', 'extractionStart', 'extractionEnd', 'releaseDate', 'name'];
+  displayedColumns: string[] = ['carId', 'requestedDate', 'receivedDate', 'extractionStart', 'extractionEnd', 'releaseDate', 'rawMaterialId'];
   dataSource = this.Order_DATA;
 }
