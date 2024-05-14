@@ -2,16 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import { Order } from '../../models/order';
 import { OrdersService } from '../../services/orders.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule, DatePipe],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.css'
 })
 export class OrdersComponent implements OnInit{
-  Order_DATA: Order[] = [];
+  orderData: Order[] = [];
 
   constructor(private ordersService: OrdersService) {}
 
@@ -23,8 +24,9 @@ export class OrdersComponent implements OnInit{
     this.ordersService.getOrders().subscribe({
       next: (orders) => {
 
-        this.Order_DATA = orders;
+        this.orderData = orders;
         console.log('Orders Retrieved:', orders)
+        this.dataSource = this.orderData;
       },
       error: (error) => {
         console.error(error);
@@ -33,6 +35,6 @@ export class OrdersComponent implements OnInit{
 }
 
 
-  displayedColumns: string[] = ['car_id', 'requestedDate', 'receivedDate', 'extractionStartDate', 'emptiedDate', 'releasedDate', 'name'];
-  dataSource = this.Order_DATA;
+  displayedColumns: string[] = ['carId', 'requestedDate', 'receivedDate', 'extractionStart', 'extractionEnd', 'releaseDate', 'rawMaterialId', 'weight'];
+  dataSource = this.orderData;
 }
