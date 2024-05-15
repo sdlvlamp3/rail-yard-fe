@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Order } from '../../core/models/order';
 import { RawMaterial } from '../../shared/models/raw-material.model';
+import { RawMaterialsService } from '../../core/services/raw-materials.service';
 
 @Component({
   selector: 'app-add-edit-modal',
@@ -24,7 +25,7 @@ import { RawMaterial } from '../../shared/models/raw-material.model';
   templateUrl: './add-edit-modal.component.html',
   styleUrl: './add-edit-modal.component.css'
 })
-export class AddEditModalComponent {
+export class AddEditModalComponent implements OnInit{
 
   orderForm: FormGroup;
 
@@ -35,7 +36,8 @@ export class AddEditModalComponent {
   constructor(
     public dialogRef: MatDialogRef<AddEditModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Order,
-    public formbuilder: FormBuilder
+    private formbuilder: FormBuilder,
+    private rawMaterialsService: RawMaterialsService
   ) {
     this.orderForm = this.formbuilder.group({
       car_id: new FormControl('', Validators.required),
@@ -50,11 +52,28 @@ export class AddEditModalComponent {
     });
   }
 
+  ngOnInit() {
+    this.rawMaterialsService.getMaterials().subscribe({
+      next: (materials) => {
+        this.materials = materials;
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    })
+    if (this.data) {
+      this.modeText = 'Edit';
+      this.orderForm.patchValue(this.data);
+    }
+  }
+
   onNoClick(): void {
     this.dialogRef.close();
   }
 
   submit(): void {
+    console.log(this.orderForm.value);
+
     this.dialogRef.close(this.orderForm.value);
   }
 

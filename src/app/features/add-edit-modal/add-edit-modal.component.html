@@ -33,6 +33,10 @@
           <option value="{{ material.id }}">{{ material.material_name }}</option>
         }
       </select>
+      <mat-form-field>
+        <label for="weight">Weight</label>
+        <input matInput type="number" name="weight" id="weight" formControlName="weight">
+      </mat-form-field>
   </mat-dialog-content>
   <mat-dialog-actions>
     <button mat-button (click)="onNoClick()">No Thanks</button>
