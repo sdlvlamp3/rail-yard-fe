@@ -32,10 +32,6 @@ export class SideNavComponent {
     const dialogRef = this.dialog.open(AddEditModalComponent, {
       data: this.editOrder,
     });
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    // });
   }
 
   logout() {
