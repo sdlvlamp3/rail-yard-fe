@@ -16,8 +16,6 @@ import { AuthService } from '../../../core/services/auth.service';
 export class SideNavComponent {
   constructor(private router: Router, private authService: AuthService) {}
 
-  
-
   logout() {
     this.authService.logOut()
     this.router.navigate['landing']
