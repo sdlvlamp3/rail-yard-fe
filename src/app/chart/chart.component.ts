@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
 import { ChartOptions, ChartType, ChartDataset } from 'chart.js';
+import { OrdersService } from '../core/services/orders.service';
+import { Order } from '../core/models/order';
 
 @Component({
   selector: 'app-chart',
@@ -9,7 +11,32 @@ import { ChartOptions, ChartType, ChartDataset } from 'chart.js';
   templateUrl: './chart.component.html',
   styleUrl: './chart.component.css'
 })
-export class ChartComponent {
+export class ChartComponent implements OnInit {
+  orderData: Order[] = [];
+
+  constructor(private ordersService:OrdersService){}
+
+ngOnInit(): void {
+  this.orderLoad()
+}
+
+
+orderLoad(): void {
+  this.ordersService.getOrders().subscribe({
+    next: (orders) => {
+
+      this.orderData = orders;
+      console.log('Orders Retrieved:', orders)
+      
+    },
+    error: (error) => {
+      console.error(error);
+    }
+  });
+}
+
+
+
   public chartOptions: ChartOptions = {
     responsive: true,
   };
