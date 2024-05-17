@@ -27,7 +27,8 @@ orderLoad(): void {
 
       this.orderData = orders;
       console.log('Orders Retrieved:', orders)
-      
+      this.updateChart()
+
     },
     error: (error) => {
       console.error(error);
@@ -37,10 +38,18 @@ orderLoad(): void {
 
 
 
+updateChart(): void{
+  this.chartLabels = this.orderData.map(order => order.car_id);
+}
+
+
+
+
   public chartOptions: ChartOptions = {
     responsive: true,
   };
-  public chartLabels: string[] = ['Material1', 'Material1', 'Material1', 'Material1', 'Material1', 'Material1', 'Material1'];
+  // public chartLabels: string[] = ['Material1', 'Material1', 'Material1', 'Material1', 'Material1', 'Material1', 'Material1'];
+  public chartLabels: string[] = [];
   public chartType: ChartType = 'bar';
   public chartLegend = true;
   public chartPlugins = [];
