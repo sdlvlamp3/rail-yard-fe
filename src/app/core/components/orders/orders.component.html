@@ -4,6 +4,35 @@
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <th mat-cell *matCellDef="let car">
+
+        <button [matMenuTriggerFor]="menu" mat-button color="accent" aria-label="Action">
+          <mat-icon>menu</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu" yPosition="below">
+
+          <button mat-menu-item>Update
+            </button>
+          <button mat-menu-item [matMenuTriggerFor]="status" >Status
+            </button>
+
+        </mat-menu>
+
+          <mat-menu #status="matMenu">
+            <button mat-menu-item> In Progress </button>
+            <button mat-menu-item> Emptied </button>
+            <button mat-menu-item> Released </button>
+
+          </mat-menu>
+
+      </th>
+    </ng-container>
+
+
     <!-- Position Column -->
     <ng-container matColumnDef="carId">
       <th mat-header-cell *matHeaderCellDef> No. </th>
@@ -54,17 +83,5 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-
-
-
-
-
-
-
-
-
-
-
-
 
 </div>

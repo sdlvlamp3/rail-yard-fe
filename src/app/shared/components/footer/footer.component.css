@@ -1,28 +1,17 @@
 .foot{
   cursor: pointer;
-
   width: 100%;
-  /* padding: 5%; */
-  /* left: 0;
-  bottom: 0; */
 }
 
 .tool{
-  margin-top: 3%;
   background-color: rgba(128, 128, 128, 0.13);
 }
-
-
-
 
 .list-main{
   display: flex;
   justify-content: center;
   gap: 2%;
-
 }
-
-
 
 .contact{
   text-align: center;
