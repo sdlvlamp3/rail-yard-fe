@@ -1,7 +1,11 @@
 <div class="main">
-  
+
   <div class="controls">
-    <button mat-raised-button>New Order</button>
+    <button class="table-control" mat-raised-button>New Order</button>
+    <button class="table-control" mat-raised-button>In Progress</button>
+    <button class="table-control" mat-raised-button>Completed</button>
+
+
   </div>
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
