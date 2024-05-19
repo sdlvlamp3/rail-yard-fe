@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
 import { MatIcon } from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 import { Order } from '../../models/order';
 import { OrdersService } from '../../services/orders.service';
 import { DatePipe } from '@angular/common';
@@ -13,6 +14,7 @@ import { Router } from '@angular/router';
   imports: [
     MatTableModule,
     MatMenuModule,
+    MatButtonModule,
     DatePipe,
     MatIcon,
   ],
