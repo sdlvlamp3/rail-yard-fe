@@ -34,6 +34,22 @@ export class SideNavComponent {
     });
   }
 
+  editDialog(): void {
+    const dialogRef = this.dialog.open(AddEditModalComponent, {
+      data: {
+        order: {
+          car_id: '123',
+          requested_date: new Date('2024-02-16'),
+          user_id: 1,
+          raw_material_id: 1,
+          weight: 1645.12,
+          id: 1,
+        },
+        modeText: 'Edit'
+      },
+    });
+  }
+
   logout() {
     this.authService.logOut()
     this.router.navigate['landing']
