@@ -55,7 +55,7 @@ export class AddEditModalComponent implements OnInit{
       extraction_start: new FormControl<Date>(null),
       extraction_end: new FormControl<Date>(null),
       release_date: new FormControl<Date>(null),
-      user_id: new FormControl<number>(null, Validators.required),
+      user_id: new FormControl<number>(1, Validators.required),
       raw_material_id: new FormControl<number>(null, Validators.required),
       weight: new FormControl<number>(null, Validators.required),
     });

@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { AddEditModalComponent } from '../../../features/add-edit-modal/add-edit-modal.component';
-import { Order } from '../../../core/models/order';
 import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from '../../../core/services/auth.service';
