@@ -18,6 +18,7 @@ import {
   MatDialogClose,
   MatDialogContent,
 } from '@angular/material/dialog';
+import { AddEditModalComponent } from '../../../features/add-edit-modal/add-edit-modal.component';
 
 @Component({
   selector: 'app-orders',
@@ -35,14 +36,31 @@ import {
 export class OrdersComponent implements OnInit{
   orderData: Order[] = [];
 
-
   constructor(
     private ordersService: OrdersService,
     public router: Router,
-    
+    public dialog: MatDialog,
   ) {}
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddEditModalComponent);
 
+    dialogRef.afterClosed().subscribe(() => {
+      this.orderLoad();
+    });
+  }
+
+  editDialog(order): void {
+    const dialogRef = this.dialog.open(AddEditModalComponent, {
+      data: {
+        order: order,
+        modeText: 'Edit'
+      },
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      this.orderLoad();
+    });
+  }
 
   ngOnInit(): void {
       this.orderLoad()
@@ -51,7 +69,6 @@ export class OrdersComponent implements OnInit{
   orderLoad(): void {
     this.ordersService.getOrders().subscribe({
       next: (orders) => {
-
         this.orderData = orders;
         console.log('Orders Retrieved:', orders)
         this.dataSource = this.orderData;
@@ -61,7 +78,6 @@ export class OrdersComponent implements OnInit{
       }
     });
 }
-
 
 //Order control logic lives here; modals, methods, and more
 

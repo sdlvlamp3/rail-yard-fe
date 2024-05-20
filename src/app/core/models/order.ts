@@ -14,5 +14,4 @@ raw_material_id!: number;
 created_at!: Date;
 updated_at!: Date;
 weight?: number
-
 }

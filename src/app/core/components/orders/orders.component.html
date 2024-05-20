@@ -1,7 +1,7 @@
 <div class="main">
 
   <div class="controls">
-    <button class="table-control" mat-raised-button>New Order</button>
+    <button class="table-control" mat-raised-button (click)="openDialog()">New Order</button>
     <button class="table-control" mat-raised-button>In Progress</button>
     <button class="table-control" mat-raised-button>Completed</button>
 
@@ -21,7 +21,7 @@
           <mat-icon>menu</mat-icon>
         </button>
         <mat-menu #menu="matMenu" yPosition="below">
-          <button mat-menu-item>Update
+          <button mat-menu-item (click)="editDialog(car)">Update
             </button>
           <button mat-menu-item [matMenuTriggerFor]="status" >Status
             </button>

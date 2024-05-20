@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from '../../../core/services/auth.service';
@@ -8,7 +11,10 @@ import { AuthService } from '../../../core/services/auth.service';
   selector: 'app-side-nav',
   standalone: true,
   imports: [
-    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule
   ],
   templateUrl: './side-nav.component.html',
   styleUrl: './side-nav.component.css'

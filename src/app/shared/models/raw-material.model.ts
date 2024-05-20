@@ -1,6 +1,6 @@
 export class RawMaterial {
       id: number;
-      materialName: string;
+      material_name: string;
       weight: number;
       quantity: number;
       consumptionRate: number;
