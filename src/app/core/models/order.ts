@@ -2,6 +2,7 @@ import { DecimalPipe } from "@angular/common";
 
 export class Order {
 
+id!: number;
 car_id!: string
 requested_date?: Date;
 received_date?: Date;

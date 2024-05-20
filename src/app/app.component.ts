@@ -5,6 +5,7 @@ import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SideNavComponent } from './shared/components/side-nav/side-nav.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { Router, NavigationEnd } from '@angular/router';
 
 
 
@@ -23,4 +24,21 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 })
 export class AppComponent {
   title = 'rail-yard-fe';
+  drawerOpen: boolean = true;
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.updateDrawerState(event.urlAfterRedirects);
+      }
+    });
+  }
+
+  private updateDrawerState(url: string) {
+    const drawerHiddenRoutes = ['/login', '/landing'];
+    this.drawerOpen = !drawerHiddenRoutes.includes(url);
+  }
+
 }

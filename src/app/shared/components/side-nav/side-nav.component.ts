@@ -14,7 +14,7 @@ import { AuthService } from '../../../core/services/auth.service';
   styleUrl: './side-nav.component.css'
 })
 export class SideNavComponent {
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(public router: Router, private authService: AuthService) {}
 
   logout() {
     this.authService.logOut()
