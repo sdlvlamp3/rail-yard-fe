@@ -40,8 +40,9 @@ orderLoad(): void {
 
 updateChart(): void{
   this.chartLabels = this.orderData.map(order => order.car_id);
-  // this.chartData = this.orderData.map(order => order.weight);
-  // this.chartData[0].data = this.orderData.map(order => order.weight !== null ? order.weight : 0);
+  let weights = this.orderData.map(order => order.weight !== null ? order.weight : 0);
+  this.chartData = [{ data: weights, label: 'Weight' }];
+
 
 }
 
@@ -57,13 +58,8 @@ updateChart(): void{
   public chartLegend = true;
   public chartPlugins = [];
 
- public chartData: ChartDataset[] = [
-  //   { data: [], label: 'Weight' },
+  public chartData: ChartDataset[] = [];
   // ];
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Weight' },
-    // { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
-  ];
-
-
+    // { data: [65.4, 59, 80, 81, 56, 55, 40], label: 'Weight' },
 
 }
