@@ -12,13 +12,15 @@ html, body {
 }
 
 mat-drawer {
-  width: 250px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-
+  height: 100%;
+  flex-grow: 1;
 }
+
+mat-drawer-content {
+  height: 100%;
+}
+
 
 

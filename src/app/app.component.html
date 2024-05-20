@@ -1,7 +1,8 @@
 <div class="main">
 <app-navbar></app-navbar>
-  <mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened>
+  <mat-drawer-container class="sidenav-container">
+
+    <mat-drawer mode="side" [opened]="drawerOpen">
 
       <app-side-nav></app-side-nav>
 
