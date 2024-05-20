@@ -3,6 +3,7 @@ import { LandingComponent } from './core/components/landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { HomePageComponent } from './core/components/home-page/home-page.component';
 import { OrdersComponent } from './core/components/orders/orders.component';
+import { RawMaterialsComponent } from './core/components/raw-materials/raw-materials.component';
 
 
 export const routes: Routes = [
@@ -35,5 +36,11 @@ export const routes: Routes = [
     path: 'orders',
     loadComponent: () => import('./core/components/orders/orders.component')
       .then((m) => m.OrdersComponent)
+  },
+
+  {
+    path: 'raw-materials',
+    loadComponent: () => import('./core/components/raw-materials/raw-materials.component')
+      .then ((m) => m.RawMaterialsComponent)
   }
 ]

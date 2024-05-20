@@ -1,0 +1,35 @@
+<form (ngSubmit)="onSubmit()" #materialForm="ngForm">
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Material Id" name="materialId" [(ngModel)]="materialId" required>
+        <mat-error *ngIf="IdField.touched && IdField.invalid">
+          Material Id is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Material Name" name="materialName" [(ngModel)]="materialName" required>
+        <mat-error *ngIf="materialNameField.touched && materialNameField.invalid">
+          Material Name is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Weight" type="number" name="weight" [(ngModel)]="weight" required min="0.1">
+        <mat-error *ngIf="weightField.touched && weightField.invalid">
+          Weight is required and must be greater than 0.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Quantity" type="number" name="quantity" [(ngModel)]="quantity" required min="1">
+        <mat-error *ngIf="quantityField.touched && quantityField.invalid">
+          Quantity is required and must be at least 1.
+        </mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="!materialForm.valid">Add Material</button>
+    </div>
+  </form>
+  
+  
