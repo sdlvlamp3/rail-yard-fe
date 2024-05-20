@@ -17,26 +17,21 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Actions</th>
       <th mat-cell *matCellDef="let car">
-
         <button [matMenuTriggerFor]="menu" mat-button color="accent" aria-label="Action">
           <mat-icon>menu</mat-icon>
         </button>
-
         <mat-menu #menu="matMenu" yPosition="below">
-
           <button mat-menu-item>Update
             </button>
           <button mat-menu-item [matMenuTriggerFor]="status" >Status
             </button>
-
-        </mat-menu>
-
-          <mat-menu #status="matMenu">
-            <button mat-menu-item> In Progress </button>
-            <button mat-menu-item> Emptied </button>
-            <button mat-menu-item> Released </button>
-
           </mat-menu>
+            <mat-menu #status="matMenu">
+              <button mat-menu-item> In Progress </button>
+              <button mat-menu-item> Emptied </button>
+              <button mat-menu-item (click)="delOrder(car.id)"> Released </button>
+
+            </mat-menu>
 
       </th>
     </ng-container>
