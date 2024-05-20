@@ -1,4 +1,4 @@
-import { DecimalPipe } from "@angular/common";
+
 
 export class Order {
 
@@ -13,6 +13,6 @@ user_id!: number;
 raw_material_id!: number;
 created_at!: Date;
 updated_at!: Date;
-weight?: DecimalPipe;
+weight?: number
 
 }
