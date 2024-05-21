@@ -50,10 +50,22 @@ export class OrdersComponent implements OnInit{
     });
   }
 
-  editDialog(order): void {
+  editDialog(order: Order): void {
+    console.log('Order to edit:', order.received_date)
     const dialogRef = this.dialog.open(AddEditModalComponent, {
       data: {
-        order: order,
+        order: {
+          id: order.id,
+          car_id: order.car_id,
+          requested_date: new Date(order.requested_date),
+          received_date: new Date(order.received_date),
+          extraction_start: new Date(order.extraction_start),
+          extraction_end: new Date(order.extraction_end),
+          release_date: new Date(order.release_date),
+          raw_material_id: order.raw_material_id,
+          weight: order.weight,
+          user_id: order.user_id
+        },
         modeText: 'Edit'
       },
     });
