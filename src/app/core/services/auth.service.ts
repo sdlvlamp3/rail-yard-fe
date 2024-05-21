@@ -23,6 +23,7 @@ export class AuthService {
       email,
       password
     });
+  
   }
 
   setToken(token: string) {
