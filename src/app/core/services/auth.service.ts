@@ -11,11 +11,13 @@ import { isPlatformBrowser } from '@angular/common';
 export class AuthService {
   private readonly tokenSubject = new BehaviorSubject< string | null>(null)
 
+
   constructor(
     private http: HttpClient,
     private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object
   ) { }
+
 
   signup(user: User) {
     return this.http.post('http://localhost:3000/users', {
@@ -35,6 +37,7 @@ export class AuthService {
     if (isPlatformBrowser(this.platformId)) {
     localStorage.setItem('token', token);
     this.tokenSubject.next(token);
+
     }
   }
 
@@ -43,6 +46,7 @@ export class AuthService {
       return localStorage.getItem('token');
     }
     return null;
+
   }
 
   userLoggedIn() {
