@@ -37,7 +37,7 @@ export class AppComponent {
   }
 
   private updateDrawerState(url: string) {
-    const drawerHiddenRoutes = ['/login', '/landing'];
+    const drawerHiddenRoutes = ['/login', '/landing', '/signup'];
     this.drawerOpen = !drawerHiddenRoutes.includes(url);
   }
 

@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { HomePageComponent } from './core/components/home-page/home-page.component';
 import { OrdersComponent } from './core/components/orders/orders.component';
 import { ChartComponent } from './chart/chart.component';
+import { authGuard } from './auth.guard';
 
 
 export const routes: Routes = [
@@ -29,18 +30,21 @@ export const routes: Routes = [
   {
     path: 'home-page',
   loadComponent: () => import('./core/components/home-page/home-page.component')
-    .then((m) => m.HomePageComponent)
+    .then((m) => m.HomePageComponent),
+    canActivate: [authGuard]
   },
 
   {
     path: 'orders',
     loadComponent: () => import('./core/components/orders/orders.component')
-      .then((m) => m.OrdersComponent)
+      .then((m) => m.OrdersComponent),
+      canActivate: [authGuard]
   },
 
   {
     path: 'chart',
     loadComponent: () => import('./chart/chart.component')
-      .then((m) => m.ChartComponent)
+      .then((m) => m.ChartComponent),
+      canActivate: [authGuard]
   }
 ]
