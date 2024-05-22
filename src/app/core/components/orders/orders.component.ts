@@ -57,11 +57,11 @@ export class OrdersComponent implements OnInit{
         order: {
           id: order.id,
           car_id: order.car_id,
-          requested_date: new Date(order.requested_date),
-          received_date: new Date(order.received_date),
-          extraction_start: new Date(order.extraction_start),
-          extraction_end: new Date(order.extraction_end),
-          release_date: new Date(order.release_date),
+          requested_date: order.requested_date ? new Date(order.requested_date) : null,
+          received_date: order.received_date ? new Date(order.received_date) : null,
+          extraction_start: order.extraction_start ? new Date(order.extraction_start) : null,
+          extraction_end: order.extraction_end ? new Date(order.extraction_end) : null,
+          release_date: order.release_date ? new Date(order.release_date) : null,
           raw_material_id: order.raw_material_id,
           weight: order.weight,
           user_id: order.user_id

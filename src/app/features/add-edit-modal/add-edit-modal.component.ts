@@ -50,7 +50,7 @@ export class AddEditModalComponent implements OnInit{
 
     this.orderForm = this.formbuilder.group({
       car_id: new FormControl('', Validators.required),
-      requested_date: new FormControl<Date>(null, Validators.required),
+      requested_date: new FormControl<Date>(new Date(), Validators.required),
       received_date: new FormControl<Date>(null),
       extraction_start: new FormControl<Date>(null),
       extraction_end: new FormControl<Date>(null),
@@ -62,6 +62,7 @@ export class AddEditModalComponent implements OnInit{
   }
 
   ngOnInit() {
+    console.log(this.data);
     this.rawMaterialsService.getMaterials().subscribe({
       next: (materials) => {
         this.materials = materials;
