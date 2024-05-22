@@ -10,6 +10,8 @@ import { User } from '../../shared/models/user.model';
 export class AuthService {
   private readonly tokenSubject = new BehaviorSubject< string | null>(null)
 
+  hasToken:Boolean = false;
+
   constructor( private http: HttpClient, private router: Router ) { }
 
   signup(user: User) {
@@ -23,16 +25,19 @@ export class AuthService {
       email,
       password
     });
-  
+
   }
 
   setToken(token: string) {
     localStorage.setItem('token', token);
     this.tokenSubject.next(token);
+    this.hasToken = true;
   }
 
   getToken() {
-    return localStorage.getItem('token');
+    if(!this.hasToken) {
+      return localStorage.getItem('token');
+    }
   }
 
   userLoggedIn() {
