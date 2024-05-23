@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../core/services/auth.service';
+import { AuthService } from '../../../core/services/auth.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
