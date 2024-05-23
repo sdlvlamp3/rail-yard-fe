@@ -9,7 +9,7 @@ import { isPlatformBrowser } from '@angular/common';
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly tokenSubject = new BehaviorSubject< string | null>(null)
+  private readonly tokenSubject = new BehaviorSubject< string | null>(this.getToken())
 
 
   constructor(
@@ -59,6 +59,10 @@ export class AuthService {
       this.tokenSubject.next(null);
       this.router.navigate(['landing'])
     }
+  }
+
+  get token$() {
+    return this.tokenSubject.asObservable();
   }
 
 }

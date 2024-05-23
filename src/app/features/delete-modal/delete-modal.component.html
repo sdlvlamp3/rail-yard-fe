@@ -1,0 +1,10 @@
+<div class="modal-container">
+<h2 mat-dialog-title>WARNING</h2>
+<mat-dialog-content>
+<ng-container >
+  <h4>Releasing this car will permenently remove it from Orders</h4>
+  <p>Please confirm that you intend to delete car {{data.order.car_id}} from current orders?</p>
+</ng-container>
+<button mat-raised-button (click)="delOrder(data.order.id, $event)" color="warn">Confirm & Delete</button>
+</mat-dialog-content>
+</div>

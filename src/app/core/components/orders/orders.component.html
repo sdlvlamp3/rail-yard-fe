@@ -8,6 +8,7 @@
 
   </div>
 
+<div class="table-container">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
@@ -23,13 +24,7 @@
         <mat-menu #menu="matMenu" yPosition="below">
           <button mat-menu-item (click)="editDialog(car)">Update
             </button>
-          <button mat-menu-item [matMenuTriggerFor]="status" >Status
-            </button>
-          </mat-menu>
-            <mat-menu #status="matMenu">
-              <button mat-menu-item> In Progress </button>
-              <button mat-menu-item> Emptied </button>
-              <button mat-menu-item (click)="delOrder(car.id)"> Released </button>
+            <button mat-menu-item (click)="deleteDialog(car)"> Release </button>
 
             </mat-menu>
 
@@ -86,6 +81,7 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
 
+  </table>
+</div>
 </div>

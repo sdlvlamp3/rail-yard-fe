@@ -19,6 +19,7 @@ import {
   MatDialogContent,
 } from '@angular/material/dialog';
 import { AddEditModalComponent } from '../../../features/add-edit-modal/add-edit-modal.component';
+import { DeleteModalComponent } from '../../../features/delete-modal/delete-modal.component';
 
 @Component({
   selector: 'app-orders',
@@ -44,6 +45,21 @@ export class OrdersComponent implements OnInit{
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddEditModalComponent);
+
+    dialogRef.afterClosed().subscribe(() => {
+      this.orderLoad();
+    });
+  }
+
+  deleteDialog(order: Order): void {
+    const dialogRef = this.dialog.open(DeleteModalComponent, {
+      data: {
+        order: {
+          id: order.id,
+          car_id: order.car_id
+        }
+      }
+    })
 
     dialogRef.afterClosed().subscribe(() => {
       this.orderLoad();
@@ -92,14 +108,6 @@ export class OrdersComponent implements OnInit{
 }
 
 //Order control logic lives here; modals, methods, and more
-
-openDelDialogue() {
-
-}
-
-closeDelDialogue() {
-
-}
 
 delOrder(order_id: number, event: MouseEvent) {
   //event.stopPropagation()
