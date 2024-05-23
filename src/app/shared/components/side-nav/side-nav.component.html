@@ -3,12 +3,12 @@
   <div class="d-flex flex-column" id="nav-container">
 
       <div class="top-nav-container">
-        <button mat-raised-button id="nav-btn"
+        <button mat-raised-button id="order-nav" class="nav-btn"
         [routerLink]="['orders']" routerLinkActive="router-link-active">
           Orders
         </button>
 
-        <button mat-raised-button id="nav-btn"
+        <button mat-raised-button class="nav-btn"
         [routerLink]="['chart']" routerLinkActive="router-link-active">
           Logistics
         </button>
@@ -18,10 +18,11 @@
 
 
       <div class="user-logout">
-        <button mat-raised-button id="nav-btn"
+        <button mat-raised-button class="nav-btn"
         (click)="logout()">
           Logout
         </button>
       </div>
+
     </div>
 

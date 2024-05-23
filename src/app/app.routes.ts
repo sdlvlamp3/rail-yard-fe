@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { LandingComponent } from './core/components/landing/landing.component';
-import { LoginComponent } from './shared/components/login/login.component';
+import { LoginComponent } from './features/login/login.component';
 import { HomePageComponent } from './core/components/home-page/home-page.component';
 import { OrdersComponent } from './core/components/orders/orders.component';
 import { ChartComponent } from './chart/chart.component';
@@ -23,7 +23,7 @@ export const routes: Routes = [
 
   {
     path: 'login',
-  loadComponent: () => import('./shared/components/login/login.component')
+  loadComponent: () => import('./features/login/login.component')
     .then((m) => m.LoginComponent)
   },
 

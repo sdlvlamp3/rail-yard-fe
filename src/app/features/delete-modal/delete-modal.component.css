@@ -1,0 +1,9 @@
+.modal-container {
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+
+mat-dialog-title {
+  color: red;
+}
