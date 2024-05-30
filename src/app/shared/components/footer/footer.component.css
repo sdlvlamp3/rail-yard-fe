@@ -5,6 +5,9 @@
 
 .tool{
   background-color: rgba(128, 128, 128, 0.13);
+  bottom: 0;
+  position: sticky;
+
 }
 
 .list-main{
@@ -16,3 +19,5 @@
 .contact{
   text-align: center;
 }
+
+

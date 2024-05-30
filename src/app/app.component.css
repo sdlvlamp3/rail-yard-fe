@@ -2,13 +2,14 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 .main {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
 }
 
 mat-drawer {
@@ -16,15 +17,25 @@ mat-drawer {
   flex-direction: column;
   height: 100%;
   flex-grow: 1;
-
 }
 
 mat-drawer-content {
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+  padding-bottom: 1rem;
+}
+
+.footer {
+  flex-shrink: 0;
+  
 }
 
 button{
   background-color: #feefdd;
 }
+
+
 
 

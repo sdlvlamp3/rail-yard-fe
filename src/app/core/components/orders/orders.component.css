@@ -1,7 +1,7 @@
 .main{
-  min-height: 100vh;
+  min-height: 100%;
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
   align-items: center;
   justify-content: space-around;
 }
@@ -15,23 +15,22 @@
   width: 100%;
   top: 0;
   margin: auto;
-  padding: 1rem;
-  z-index: 1000;
+
 }
 
 .table-control {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .table-container {
-  max-width: 80%;
+  width: 80%;
+  height: 100%;
   margin: auto;
 }
 
 table {
- flex: 1;
- overflow-y: auto;
- margin-top: 2%;
- background-color: #feefdd;
- align-items: center;
+  height: 100%;
+   margin-top: 1em;
+   background-color: #feefdd;
+  align-items: center;
 }

@@ -2,7 +2,7 @@ import { Component,
   OnInit,
   ViewChild
 } from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
+import {MatTableModule, MatTableDataSource, MatTable} from '@angular/material/table';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenuModule,
   MatMenuTrigger
@@ -18,6 +18,8 @@ import {
   MatDialogClose,
   MatDialogContent,
 } from '@angular/material/dialog';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+
 import { AddEditModalComponent } from '../../../features/add-edit-modal/add-edit-modal.component';
 import { DeleteModalComponent } from '../../../features/delete-modal/delete-modal.component';
 
@@ -30,18 +32,50 @@ import { DeleteModalComponent } from '../../../features/delete-modal/delete-moda
     MatButtonModule,
     DatePipe,
     MatIcon,
+    MatPaginatorModule
   ],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.css'
 })
 export class OrdersComponent implements OnInit{
   orderData: Order[] = [];
+  dataSource = new MatTableDataSource<Order>([])
+
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
     private ordersService: OrdersService,
     public router: Router,
     public dialog: MatDialog,
   ) {}
+
+  displayedColumns: string[] = [
+   'carId', 'requestedDate', 'receivedDate',
+    'extractionStart', 'extractionEnd','releaseDate',
+    'rawMaterialId', 'weight','actions'
+  ];
+
+  ngOnInit(): void {
+      this.orderLoad()
+  }
+
+  orderLoad(): void {
+    this.ordersService.getOrders().subscribe({
+      next: (orders) => {
+        this.dataSource.data = orders;
+        console.log('Orders Retrieved:', orders)
+        this.dataSource.paginator = this.paginator
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddEditModalComponent);
@@ -90,23 +124,6 @@ export class OrdersComponent implements OnInit{
     });
   }
 
-  ngOnInit(): void {
-      this.orderLoad()
-  }
-
-  orderLoad(): void {
-    this.ordersService.getOrders().subscribe({
-      next: (orders) => {
-        this.orderData = orders;
-        console.log('Orders Retrieved:', orders)
-        this.dataSource = this.orderData;
-      },
-      error: (error) => {
-        console.error(error);
-      }
-    });
-}
-
 //Order control logic lives here; modals, methods, and more
 
 delOrder(order_id: number, event: MouseEvent) {
@@ -116,8 +133,7 @@ delOrder(order_id: number, event: MouseEvent) {
   });
 }
 
-  // Table logic lives here;
 
-  displayedColumns: string[] = ['carId', 'requestedDate', 'receivedDate', 'extractionStart', 'extractionEnd', 'releaseDate', 'rawMaterialId', 'weight', 'actions'];
-  dataSource = this.orderData;
+
+
 }
