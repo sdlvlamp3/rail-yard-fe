@@ -12,6 +12,12 @@ html, body {
   width: 100vw;
 }
 
+mat-drawer-container {
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+}
+
 mat-drawer {
   display: flex;
   flex-direction: column;
@@ -25,11 +31,6 @@ mat-drawer-content {
   flex-grow: 1;
   overflow: hidden;
   padding-bottom: 1rem;
-}
-
-.footer {
-  flex-shrink: 0;
-  
 }
 
 button{

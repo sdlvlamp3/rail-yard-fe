@@ -1,23 +1,22 @@
-.foot{
+.foot {
   cursor: pointer;
   width: 100%;
 }
 
-.tool{
+.tool {
   background-color: rgba(128, 128, 128, 0.13);
   bottom: 0;
   position: sticky;
-
+  width: 100%;
+  flex-shrink: 0;
 }
 
-.list-main{
+.list-main {
   display: flex;
   justify-content: center;
   gap: 2%;
 }
 
-.contact{
+.contact {
   text-align: center;
 }
-
-
