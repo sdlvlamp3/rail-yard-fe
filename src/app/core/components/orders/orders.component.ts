@@ -2,6 +2,7 @@ import { Component,
   OnInit,
   ViewChild
 } from '@angular/core';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 import {MatTableModule, MatTableDataSource, MatTable} from '@angular/material/table';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenuModule,
@@ -11,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Order } from '../../models/order';
 import { OrdersService } from '../../services/orders.service';
 import { DatePipe } from '@angular/common';
+import {MatSort, Sort, MatSortModule} from '@angular/material/sort';
 import { Router } from '@angular/router';
 import {
   MatDialog,
@@ -19,7 +21,6 @@ import {
   MatDialogContent,
 } from '@angular/material/dialog';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-
 import { AddEditModalComponent } from '../../../features/add-edit-modal/add-edit-modal.component';
 import { DeleteModalComponent } from '../../../features/delete-modal/delete-modal.component';
 
@@ -30,6 +31,7 @@ import { DeleteModalComponent } from '../../../features/delete-modal/delete-moda
     MatTableModule,
     MatMenuModule,
     MatButtonModule,
+    MatSortModule,
     DatePipe,
     MatIcon,
     MatPaginatorModule
@@ -43,11 +45,13 @@ export class OrdersComponent implements OnInit{
 
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private ordersService: OrdersService,
     public router: Router,
     public dialog: MatDialog,
+    private _liveAnnouncer: LiveAnnouncer
   ) {}
 
   displayedColumns: string[] = [
@@ -75,6 +79,7 @@ export class OrdersComponent implements OnInit{
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   openDialog(): void {
@@ -133,7 +138,13 @@ delOrder(order_id: number, event: MouseEvent) {
   });
 }
 
-
+announceSortChange(sortState: Sort) {
+  if (sortState.direction) {
+    this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+  } else {
+    this._liveAnnouncer.announce('Sorting cleared');
+  }
+}
 
 
 }

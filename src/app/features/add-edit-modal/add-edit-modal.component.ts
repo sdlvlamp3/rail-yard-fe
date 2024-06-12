@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { provideNativeDateAdapter } from '@angular/material/core';
+import { MatOption, provideNativeDateAdapter } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -10,6 +10,7 @@ import { RawMaterialsService } from '../../core/services/raw-materials.service';
 import { OrdersService } from '../../core/services/orders.service';
 import { RawMaterial } from '../../shared/models/raw-material.model';
 import { Order } from '../../core/models/order';
+import { MatSelect, MatSelectModule } from '@angular/material/select';
 @Component({
   selector: 'app-add-edit-modal',
   standalone: true,
@@ -23,6 +24,8 @@ import { Order } from '../../core/models/order';
     MatDialogContent,
     MatDialogActions,
     MatDialogClose,
+    MatOption,
+    MatSelectModule,
     ReactiveFormsModule,
     MatDatepickerModule
   ],
